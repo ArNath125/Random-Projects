@@ -1,63 +1,68 @@
 # 🛡️ Cybersecurity Mini Projects
 
-This repository contains beginner-friendly cybersecurity projects created to build foundational knowledge in ethical hacking, system security, and network reconnaissance using Python.
+This repository contains beginner-friendly cybersecurity projects focused on ethical hacking, system security, encryption, and network reconnaissance — all built with Python.
 
 ---
 
 ## 🔐 Project 1: Password Strength Checker
 
-This tool evaluates the strength of a user's password based on several common security criteria. It helps users understand how secure their passwords are and encourages stronger password habits.
+This tool evaluates the strength of a user's password based on multiple criteria and gives a strength score.
 
 ### ✅ Features:
-- Hidden password input using `getpass`
+- Hidden input using `getpass`
 - Checks for:
-  - Minimum length (8 characters)
-  - Uppercase and lowercase letters
-  - Digits and special characters
-- Strength meter (Weak, Moderate, Strong)
-
-### 💡 Purpose:
-Helps understand the concept of password policies and how they contribute to account security.
+  - Length
+  - Uppercase, lowercase, digits, special characters
+- Displays strength (Weak, Moderate, Strong)
 
 ---
 
 ## 🌐 Project 2: Port Scanner with Banner Grabbing
 
-This script performs a basic port scan on a target IP address and retrieves service banners from open ports to identify the services running.
+Scans common TCP ports on a given host and grabs banners to identify running services.
 
 ### ✅ Features:
 - Scans a list of common ports (21, 22, 80, 443, etc.)
-- Resolves domain to IP if a URL is entered
-- Grabs and prints basic banners from open ports
-- Logs results to a file named `scan_result_<target>.txt`
-
-### 💡 Purpose:
-Introduces the concept of reconnaissance and fingerprinting, which are essential steps in ethical hacking and vulnerability assessments.
+- Banner grabbing using raw socket read
+- Logs results to a file
 
 ---
 
-## 🔐 Project 3: File Encryption and Decryption (AES)
+## 🗝️ Project 3: File Encryption & Decryption
 
-This tool allows you to securely encrypt and decrypt files using symmetric encryption with the `cryptography` module (AES under the hood via Fernet). It demonstrates how sensitive data can be protected using proper encryption techniques.
+Encrypts and decrypts files using AES encryption via the Python `cryptography` library.
 
 ### ✅ Features:
-- Generates a secure encryption key (`secret.key`)
-- Encrypts any file to `.enc` format
-- Decrypts back to original using the same key
-- Simple and secure implementation using Python’s `cryptography` library
+- Generates and stores AES keys (`Fernet`)
+- Encrypts any binary/text file
+- Decrypts back to original file
+- Simple key reuse via `secret.key`
 
-### 💡 Purpose:
-Builds understanding of confidentiality, symmetric key encryption, and secure file handling.
+---
+
+## 📁 Project 4: Secure File Transfer with Authentication & Hybrid Encryption
+
+A simulated file transfer system with:
+- ✅ Hashed password authentication (`bcrypt`)
+- ✅ Hybrid encryption (RSA to exchange AES key, AES to encrypt file)
+- ✅ Encrypted transmission over socket simulation
+
+### ✅ Features:
+- **User login** with hashed passwords
+- **RSA** key generation and secure AES key exchange
+- **AES** (Fernet) used for encrypting the file content
+- **Client–Server structure** simulated via Python scripts or notebook
+
+### 💡 Learning Highlights:
+- Public/private key encryption
+- Symmetric key file encryption
+- Secure password storage and verification
+- Realistic layering of authentication + encryption
 
 ---
 
 ## 🚀 Getting Started
 
 ### Requirements
-- Python 3.x
-- `cryptography` module (for Project 3 only)
-
-### Install Required Module
-
 ```bash
-pip install cryptography
+pip install cryptography bcrypt
