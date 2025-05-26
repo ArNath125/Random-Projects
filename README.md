@@ -1,68 +1,92 @@
 # 🛡️ Cybersecurity Mini Projects
 
-This repository contains beginner-friendly cybersecurity projects focused on ethical hacking, system security, encryption, and network reconnaissance — all built with Python.
+This repository contains beginner-friendly cybersecurity projects built with Python to explore core concepts like ethical hacking, encryption, vulnerability analysis, and secure communication.
 
 ---
 
 ## 🔐 Project 1: Password Strength Checker
 
-This tool evaluates the strength of a user's password based on multiple criteria and gives a strength score.
+This tool checks the strength of a user's password and encourages strong password habits.
 
 ### ✅ Features:
-- Hidden input using `getpass`
+- Hidden password input using `getpass`
 - Checks for:
-  - Length
+  - Minimum length
   - Uppercase, lowercase, digits, special characters
-- Displays strength (Weak, Moderate, Strong)
+- Strength meter: Weak, Moderate, or Strong
 
 ---
 
 ## 🌐 Project 2: Port Scanner with Banner Grabbing
 
-Scans common TCP ports on a given host and grabs banners to identify running services.
+Scans common TCP ports on a host and grabs banners to identify services running on those ports.
 
 ### ✅ Features:
-- Scans a list of common ports (21, 22, 80, 443, etc.)
-- Banner grabbing using raw socket read
-- Logs results to a file
+- Scans common ports (1–1024)
+- Banner grabbing using socket
+- Domain/IP support
+- Results saved to a file
 
 ---
 
-## 🗝️ Project 3: File Encryption & Decryption
+## 🔐 Project 3: File Encryption & Decryption
 
-Encrypts and decrypts files using AES encryption via the Python `cryptography` library.
+Encrypt and decrypt any file using AES symmetric encryption (`Fernet` from `cryptography`).
 
 ### ✅ Features:
-- Generates and stores AES keys (`Fernet`)
-- Encrypts any binary/text file
-- Decrypts back to original file
-- Simple key reuse via `secret.key`
+- AES key generation and reuse
+- File encryption (any type)
+- Secure decryption
+- CLI-based file selection
 
 ---
 
 ## 📁 Project 4: Secure File Transfer with Authentication & Hybrid Encryption
 
-A simulated file transfer system with:
-- ✅ Hashed password authentication (`bcrypt`)
-- ✅ Hybrid encryption (RSA to exchange AES key, AES to encrypt file)
-- ✅ Encrypted transmission over socket simulation
+A secure simulation of encrypted file transfer with password-based authentication.
 
 ### ✅ Features:
-- **User login** with hashed passwords
-- **RSA** key generation and secure AES key exchange
-- **AES** (Fernet) used for encrypting the file content
-- **Client–Server structure** simulated via Python scripts or notebook
+- Password authentication (with `bcrypt` hashing)
+- Hybrid encryption:
+  - AES for file encryption
+  - RSA for secure key exchange
+- Client-server architecture using Python sockets
+- Optional notebook-based implementation
 
-### 💡 Learning Highlights:
-- Public/private key encryption
-- Symmetric key file encryption
-- Secure password storage and verification
-- Realistic layering of authentication + encryption
+### 💡 Concepts Covered:
+- Hybrid encryption (used in HTTPS)
+- Fernet + RSA usage
+- Secure client-server communications
+
+---
+
+## 🧪 Project 5: Vulnerability Scanner using Nmap
+
+Performs automated scanning for open ports, running services, OS information, and potential vulnerabilities using Nmap.
+
+### ✅ Features:
+- Open port and version detection (`-sV`)
+- Operating system detection (`-O`)
+- Vulnerability detection (`--script vuln`)
+- HTTP-specific scans (`--script http-*`)
+- Real-time scan progress & formatted results
+
+### ⚠️ Requirements:
+- `nmap` must be installed on your system
+- Run with elevated privileges for `-O` and some scripts
+
+### 💡 Concepts Covered:
+- Reconnaissance and footprinting
+- OS fingerprinting
+- Script-based vulnerability detection
+- HTTP scanning and enumeration
 
 ---
 
 ## 🚀 Getting Started
 
-### Requirements
+### Prerequisites
+
+Install Python packages:
 ```bash
-pip install cryptography bcrypt
+pip install cryptography bcrypt python-nmap
